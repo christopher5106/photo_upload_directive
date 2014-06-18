@@ -130,7 +130,6 @@ angular.module('myUploadDirective',[])
 
   } // end if desktop view
 
-
 };//end capture image
 
 
@@ -145,11 +144,9 @@ angular.module('myUploadDirective',[])
                   // var modelSetter = model.assign;
                   if(window.cordova) {
 
-element.attr("type","button");
-element.attr("value","Search");
-
-
-                element.bind('click', scope.captureImage);
+                    element.attr("type","button");
+                    element.attr("value","Search");
+                    element.bind('click', scope.captureImage);
 
               } else
                   element.bind('change', function(){
@@ -157,7 +154,7 @@ element.attr("value","Search");
                       // scope.$apply(function(){
                       // 		modelSetter(scope, element[0].files[0]);
                       // 	});
-scope.myFile= element[0].files[0];
+                      scope.myFile= element[0].files[0];
                       scope.captureImage()
                     });
                 }
