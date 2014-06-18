@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+	<head>
+			<style ="text/css">
+			.center{margin-left:auto;
+					margin-right:auto;
+					top: 50%;
+					margin-top: 50%;
+					margin-bottom: 50%;
+			}
+			.buttonSize{
+			font-size:x-large
+			}
+
+			.text{
+			font-size:larger;
+			font-weight:bold
+			}
+
+			</style>
+
+			<title>Camera Test</title>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" ></script>
+			<script src="cordova.js"></script>
+			<script src="uploadDirective.js"></script>
+
+			</head>
+
+			<body>
+
+					<script type="text/javascript">
+
+//define module
+var myApp = angular.module('myApp', ['myUploadDirective']);
+
+			//controller
+myApp.controller('myCtrl', ['$scope',function($scope){
+
+		$scope.result=[];
+
+		$scope.callback = function(data){
+			$scope.result=data;
+		}
+
+}]); //end controller
+
+</script>
+
+
+<div ng-controller = "myCtrl">
+
+<input type="file" file-upload-url="YOUR POST URL" file-callback="callback" />
+
+<table>
+<tr>
+	<td>Number of Results: </td>
+	<td>{{result.length}}</td>
+</tr>
+
+<tr>
+	<td colspan="2">Results:</td>
+</tr>
+<tr>
+	<td colspan="2"><span >{{result}}</span></td>
+</tr>
+
+</table>
+
+</div> <!--end controller-->
+
+
+
+</body>
+</html>
